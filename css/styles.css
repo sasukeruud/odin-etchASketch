@@ -17,8 +17,10 @@ footer{
 
  .grid-container{
     display: grid;
-    gap: 50px;
-    border: 10px;
+    gap: 0px;
     border-style: solid;
+    border: 5px;
     border-color: black;
+    height: 600px;
+    width: 600px;
  }
