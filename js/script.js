@@ -1,14 +1,17 @@
 const grid = document.querySelector(`.grid-container`);
 const buttonGenerate = document.querySelector(`.grid-generate`);
+const clearButton = document.querySelector(`.clear`);
+const eraserButton = document.querySelector(`.eraser`);
 let cells = document.querySelectorAll(`grid-item`);
 let generatedGrid = new Array(2);
 
 /**
  * Function to update the background color
  * @param {*cell the object the event listner will be added to} cell
+ * @param {*color which color to change to} color
  */
-function updateBackgroundColor(cell){
-    cell.style.backgroundColor = "black";
+function updateBackgroundColor(cell, color){
+    cell.style.backgroundColor = color;
 }
 
 /**
@@ -36,7 +39,7 @@ function createGrid(x = 16, y = 16){
             cell.style.backgroundColor = "white";
             generatedGrid[i][j] = i + j;
             cell.addEventListener(`mouseenter`, (e) =>{
-                updateBackgroundColor(e.target);
+                updateBackgroundColor(e.target, "black");
             });
             grid.appendChild(cell);
         }
@@ -69,5 +72,17 @@ buttonGenerate.addEventListener(`click`, (e) =>{
 
     createGrid(x,y);
 })
+
+clearButton.addEventListener(`click`, (e) =>{
+    cells = document.querySelectorAll(`.grid-item`);
+    cells.forEach(cell => updateBackgroundColor(cell, "white"));
+});
+
+eraserButton.addEventListener(`click`, (e) => {
+    cells = document.querySelectorAll(`.grid-item`);
+    cells.forEach(cell => {
+        cell.addEventListener(`mouseenter`, (e) => updateBackgroundColor(e.target, "white"));
+    })
+});
 
 createGrid();
