@@ -1,5 +1,6 @@
 const grid = document.querySelector(`.grid-container`);
-let generatedGrid = new Array(2);
+const buttonGenerate = document.querySelector(`.grid-generate`);
+let generatedGrid;
 
 console.log(grid);
 
@@ -15,8 +16,8 @@ function createGrid(x = 16, y = 16){
 
     let cellNumber = 0;
     
-    for(let i = 0; i <= x; i++){
-        for(let j = 0; j <= y; j++){
+    for(let i = 0; i < x; i++){
+        for(let j = 0; j < y; j++){
             let cell = document.createElement(`div`);
             cell.classList.add(`grid-item`);
             cell.classList.add(`${cellNumber++}`);
@@ -33,3 +34,19 @@ function createGrid(x = 16, y = 16){
 
     console.log(generatedGrid);
 }
+
+function emptyGrid(){
+    cells = document.querySelectorAll(`.grid-item`);
+    cells.forEach(cell => grid.removeChild(cell));
+}
+
+buttonGenerate.addEventListener(`click`, (e) =>{
+    emptyGrid();
+    if(generatedGrid != null) generatedGrid = [];
+    else generatedGrid = new Array(2);
+    
+    let x = prompt(`How many rows?`);
+    let y = prompt(`How many columns?`);
+
+    createGrid(x,y);
+})
