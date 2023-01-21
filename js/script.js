@@ -18,12 +18,14 @@ function createGrid(x = 16, y = 16){
     for(let i = 0; i <= x; i++){
         for(let j = 0; j <= y; j++){
             let cell = document.createElement(`div`);
+            cell.classList.add(`grid-item`);
             cell.classList.add(`${cellNumber++}`);
             cell.style.gridColumnStart = j;
             cell.style.gridColumnEnd = j + 1;
             cell.style.gridRowStart = i;
             cell.style.gridRowEnd = i + 1;
-            cell.style.backgroundColor = (255,12,23);
+            cell.style.padding = "10px";
+            cell.style.backgroundColor = "white";
             generatedGrid[i][j] = i + j;
             grid.appendChild(cell);
         }
