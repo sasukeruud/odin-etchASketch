@@ -2,6 +2,8 @@ const grid = document.querySelector(`.grid-container`);
 const buttonGenerate = document.querySelector(`.grid-generate`);
 const clearButton = document.querySelector(`.clear`);
 const eraserButton = document.querySelector(`.eraser`);
+const oneColorButton = document.querySelector(`.black`);
+const randomColorButton = document.querySelector(`.color-button`)
 let cells = document.querySelectorAll(`grid-item`);
 let generatedGrid = new Array(2);
 
@@ -82,6 +84,27 @@ eraserButton.addEventListener(`click`, (e) => {
     cells = document.querySelectorAll(`.grid-item`);
     cells.forEach(cell => {
         cell.addEventListener(`mouseenter`, (e) => updateBackgroundColor(e.target, "white"));
+    })
+});
+
+oneColorButton.addEventListener(`click`, (e) => {
+    cells = document.querySelectorAll(`.grid-item`);
+    cells.forEach(cell => {
+        cell.addEventListener(`mouseenter`, (e) => updateBackgroundColor(e.target, "black"));
+    })
+});
+
+randomColorButton.addEventListener(`click`, (e) => {
+    cells = document.querySelectorAll(`.grid-item`);
+
+    let x = Math.floor(Math.random() * 256);
+    let y = Math.floor(Math.random() * 256);
+    let z = Math.floor(Math.random() * 256);
+
+    let color = `rgb(${x},${y},${z})`;
+
+    cells.forEach(cell => {
+        cell.addEventListener(`mouseenter`, (e) => updateBackgroundColor(e.target, color));
     })
 });
 
