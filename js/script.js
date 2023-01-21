@@ -37,7 +37,6 @@ function createGrid(x = 16, y = 16){
             cell.style.gridColumnEnd = j + 1;
             cell.style.gridRowStart = i;
             cell.style.gridRowEnd = i + 1;
-            cell.style.padding = "10px";
             cell.style.backgroundColor = "white";
             generatedGrid[i][j] = i + j;
             cell.addEventListener(`mouseenter`, (e) =>{
