@@ -12,8 +12,13 @@ footer{
 
  .main{
     display: flex;
+    justify-content: center;
  }
 
  .grid-container{
     display: grid;
+    gap: 50px;
+    border: 10px;
+    border-style: solid;
+    border-color: black;
  }
