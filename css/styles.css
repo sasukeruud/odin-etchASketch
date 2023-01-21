@@ -2,7 +2,11 @@ body,html{
     height: 100%;
 }
 
-footer{
+body{
+    margin: auto;
+}
+
+.footer{
     position: fixed;
     bottom: 0;
     left: 0;
@@ -10,17 +14,34 @@ footer{
     text-align: center;
 }
 
- .main{
+button{
+    padding: 5px 20px;
+    border-radius: 8px;
+}
+
+.main{
     display: flex;
     justify-content: center;
- }
+    margin: auto;
+    padding-top: 5%;
+}
 
- .grid-container{
+.option{
+    margin-right: 60px;
+    display: flex;
+    align-items: center;
+}
+
+.grid-container{
     display: grid;
     gap: 0px;
+    grid-auto-rows:minmax(1px,auto);
+    grid-auto-columns: minmax(1px,auto);
     border-style: solid;
-    border: 5px;
+    border: 10px;
     border-color: black;
     height: 600px;
     width: 600px;
- }
+    max-height: 600px;
+    max-width: 600px;
+}
