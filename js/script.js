@@ -1,8 +1,11 @@
 const grid = document.querySelector(`.grid-container`);
 const buttonGenerate = document.querySelector(`.grid-generate`);
+let cells = document.querySelectorAll(`grid-item`);
 let generatedGrid;
 
-console.log(grid);
+function updateBackgroundColor(cell){
+    cell.style.backgroundColor = "black";
+}
 
 /**
  * Creates a grid
@@ -28,13 +31,18 @@ function createGrid(x = 16, y = 16){
             cell.style.padding = "10px";
             cell.style.backgroundColor = "white";
             generatedGrid[i][j] = i + j;
+            cell.addEventListener(`mouseenter`, (e) =>{
+                updateBackgroundColor(e.target);
+            });
             grid.appendChild(cell);
         }
     }
-
-    console.log(generatedGrid);
+    cells = document.querySelectorAll(`grid-item`);    
 }
 
+/**
+ * Function to emptry the grid items from the DOM
+ */
 function emptyGrid(){
     cells = document.querySelectorAll(`.grid-item`);
     cells.forEach(cell => grid.removeChild(cell));
