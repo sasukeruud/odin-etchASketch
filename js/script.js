@@ -3,6 +3,10 @@ const buttonGenerate = document.querySelector(`.grid-generate`);
 let cells = document.querySelectorAll(`grid-item`);
 let generatedGrid = new Array(2);
 
+/**
+ * Function to update the background color
+ * @param {*cell the object the event listner will be added to} cell
+ */
 function updateBackgroundColor(cell){
     cell.style.backgroundColor = "black";
 }
@@ -53,7 +57,15 @@ buttonGenerate.addEventListener(`click`, (e) =>{
     if(generatedGrid != null) generatedGrid = [];
     
     let x = prompt(`How many rows?`);
+    while(x > 64){
+        alert(`You entered to high row number. You entered ${x} Please renter a new number`);
+        x = prompt(`How many rows?`);
+    }
     let y = prompt(`How many columns?`);
+    while(y > 64){
+        alert(`You entered to high column number. You entered ${y} Please renter a new number`);
+        y = prompt(`How many columns?`);
+    }
 
     createGrid(x,y);
 })
