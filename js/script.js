@@ -1,7 +1,7 @@
 const grid = document.querySelector(`.grid-container`);
 const buttonGenerate = document.querySelector(`.grid-generate`);
 let cells = document.querySelectorAll(`grid-item`);
-let generatedGrid;
+let generatedGrid = new Array(2);
 
 function updateBackgroundColor(cell){
     cell.style.backgroundColor = "black";
@@ -51,10 +51,11 @@ function emptyGrid(){
 buttonGenerate.addEventListener(`click`, (e) =>{
     emptyGrid();
     if(generatedGrid != null) generatedGrid = [];
-    else generatedGrid = new Array(2);
     
     let x = prompt(`How many rows?`);
     let y = prompt(`How many columns?`);
 
     createGrid(x,y);
 })
+
+createGrid();
